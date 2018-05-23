@@ -2,10 +2,13 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/chenyongze/go-api/controllers"
+	"go-api/controllers"
 )
 
 func init() {
+
+	beego.Informational("init routers start ...")
+
 	// 默认登录
 	beego.Router("/", &controllers.ApiDocController{}, "*:Index")
 	beego.Router("/login", &controllers.LoginController{}, "*:LoginIn")
@@ -21,6 +24,7 @@ func init() {
 	beego.AutoRouter(&controllers.ApiDocController{})
 	//add lots
 	beego.AutoRouter(&controllers.LotsController{})
+	beego.AutoRouter(&controllers.DingController{})
 	// beego.AutoRouter(&controllers.ApiMonitorController{})
 	beego.AutoRouter(&controllers.EnvController{})
 	beego.AutoRouter(&controllers.CodeController{})
@@ -30,5 +34,7 @@ func init() {
 	beego.AutoRouter(&controllers.RoleController{})
 	beego.AutoRouter(&controllers.AdminController{})
 	beego.AutoRouter(&controllers.UserController{})
+
+	beego.Informational("init routers end.")
 
 }

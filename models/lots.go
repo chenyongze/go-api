@@ -5,10 +5,10 @@ import "github.com/astaxie/beego/orm"
 type Lots struct {
 	//Lot_id int `pk:"auto"`
 	Lot_id int `orm:"pk"`
-	Lot_name string
-	Lot_body string
-	Lot_sn  string
-	Lot_image string
+	Lot_name string `json:"lot_name"`
+	Lot_body string `json:"lot_body"`
+	Lot_sn  string `json:"lot_sn"`
+	Lot_image string `json:"lot_image"`
 }
 
 func (self *Lots) TableName() string {

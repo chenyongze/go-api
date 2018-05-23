@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chenyongze/go-api/models"
+	"go-api/models"
 )
 
 type AuthController struct {

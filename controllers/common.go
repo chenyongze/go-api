@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego"
-	"github.com/chenyongze/go-api/libs"
-	"github.com/chenyongze/go-api/models"
+	"go-api/libs"
+	"go-api/models"
 	"fmt"
 )
 
@@ -36,6 +36,11 @@ type BaseController struct {
 
 //前期准备
 func (self *BaseController) Prepare() {
+
+	self.Ctx.Output.Header("Author", "yongze.chen")
+	self.Ctx.Output.Header("Server", "caddy ~ 1.0.8")
+	self.Ctx.Output.Header("Access-Control-Allow-Origin", "*")
+
 	self.pageSize = 20
 	controllerName, actionName := self.GetControllerAndAction()
 	self.controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])
@@ -48,10 +53,9 @@ func (self *BaseController) Prepare() {
 	// noAuth := "ajaxsave/ajaxdel/table/loginin/loginout/getnodes/start"
 	// isNoAuth := strings.Contains(noAuth, self.actionName)
 	fmt.Println(self.controllerName)
-	if (strings.Compare(self.controllerName, "apidoc")) != 0 {
-		if (strings.Compare(self.controllerName, "lots")) != 0{
-			self.auth()
-		}
+	if ((strings.Compare(self.controllerName, "apidoc")) != 0) {
+		//校验权限
+		//self.auth()
 	}
 
 	self.Data["loginUserId"] = self.userId

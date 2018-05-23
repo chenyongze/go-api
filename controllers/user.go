@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chenyongze/go-api/libs"
-	"github.com/chenyongze/go-api/models"
+	"go-api/libs"
+	"go-api/models"
 
 )
 
