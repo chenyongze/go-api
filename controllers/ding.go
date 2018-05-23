@@ -30,8 +30,10 @@ func (self *DingController) Send()  {
 	}
 }
 
+//@router /sh-redis
 func (self *DingController) Redis()  {
-
+	self.Ctx.ResponseWriter.WriteHeader(403)
+	//account := self.GetString("account")
 	c, err := redis2.Dial("tcp", "127.0.0.1:6379")
 	if err != nil {
 		fmt.Println("Connect to redis error", err)
@@ -54,7 +56,7 @@ func (self *DingController) Redis()  {
 
 	filters := make([]interface{}, 0)
 	filters = append(filters, "status", "xxxxx")
-	filters = append(filters, "status__in", []int{0, 1, 2, 3, 4})
+	filters = append(filters, "status__inb", []int{0, 1, 2, 3, 4})
 	filters = append(filters, "api_name__icontains","dddd")
 	filters = append(filters, time.Now())
 
