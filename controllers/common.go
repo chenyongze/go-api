@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego"
-	"go-api/libs"
-	"go-api/models"
+	"github.com/chenyongze/go-api/libs"
+	"github.com/chenyongze/go-api/models"
 	"fmt"
 )
 

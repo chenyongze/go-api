@@ -1,8 +1,8 @@
 package main
 
 import (
-	"models"
-	_ "go-api/routers"
+	"github.com/chenyongze/go-api/models"
+	_ "github.com/chenyongze/go-api/routers"
 
 	"github.com/astaxie/beego"
 )

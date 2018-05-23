@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/astaxie/beego"
-	"go-api/models"
+	"github.com/chenyongze/go-api/models"
 )
 
 type ApiDocController struct {

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"go-api/models"
+	"github.com/chenyongze/go-api/models"
 )
 
 type LotsController struct {
