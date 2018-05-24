@@ -15,5 +15,6 @@
 
 info.log
 go-api
-conf/app.conf
+conf/prod.conf
+conf/dev.conf
 lastupdate.tmp

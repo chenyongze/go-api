@@ -23,7 +23,20 @@ type People struct {
 
 
 func (self *DingController) Send()  {
-	dingtalk := hltool.NewDingTalkClient(beego.AppConfig.String("ding.conf"), "##消息内容", "markdown")
+
+	beego.SetLogger("file", `{"filename":"logs/test.log"}`)
+
+	beego.Emergency("this is emergency")
+	beego.Alert("this is alert")
+	beego.Critical("this is critical")
+	beego.Error("this is error")
+	beego.Warning("this is warning")
+	beego.Notice("this is notice")
+	beego.Informational("this is informational")
+	beego.Debug("this is debug")
+
+
+	dingtalk := hltool.NewDingTalkClient(beego.AppConfig.String("ding.conf"), "##"+beego.AppConfig.String("testx"), "markdown")
 	ok, err := hltool.SendMessage(dingtalk)
 	if err != nil {
 		self.ajaxReturn(ok,MSG_ERR,"")
@@ -34,7 +47,7 @@ func (self *DingController) Send()  {
 
 //@router /sh-redis
 func (self *DingController) Redis()  {
-	self.Ctx.ResponseWriter.WriteHeader(403)
+	//self.Ctx.ResponseWriter.WriteHeader(403)
 	//account := self.GetString("account")
 	c, err := redisobj.Dial("tcp", beego.AppConfig.String("redis.link"))
 	if err != nil {
