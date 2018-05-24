@@ -7,6 +7,7 @@ import (
 	redisobj "github.com/garyburd/redigo/redis"
 	ypclnt "github.com/yunpian/yunpian-go-sdk/sdk"
 	"time"
+	"github.com/astaxie/beego/logs"
 )
 
 type DingController struct {
@@ -85,6 +86,8 @@ func (self *DingController) ReidsHashXinXi()  {
 		self.ajaxReturn("error",MSG_ERR,val)
 	}
 	fmt.Println("key", val)
+	logs.Info("M","logs::aaaaaaaaaaabbbb")
+	beego.Info("ssssssss","beego::aaaaaaaaaaabbbb")
 	self.ajaxReturn("success",MSG_OK,val)
 }
 
