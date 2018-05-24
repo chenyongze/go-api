@@ -75,14 +75,15 @@ func (self *DingController) Redis()  {
 
 }
 
-func (self *DingController) ReidsHashXinXi()  {
+//@router /redis_h [get]
+func (self *DingController) Reids_hash_xinxi()  {
 
 	xinxi_id := self.GetString("xinxi_id")
 	client := createClient()
 
 	val, err := client.HGetAll("xinxi:hash:" + xinxi_id ).Result()
 	if err != nil {
-		//panic(err)
+		panic(err)
 		self.ajaxReturn("error",MSG_ERR,val)
 	}
 	fmt.Println("key", val)
@@ -92,7 +93,7 @@ func (self *DingController) ReidsHashXinXi()  {
 }
 
 //云片短信发送
-func (self *DingController) SendSms()  {
+func (self *DingController) Send_sms()  {
 
 	clnt := ypclnt.New("bc90ddb0a06212de3eb22100d2f993a6")
 	//clnt.Sign("【胜乐典藏】")

@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/chenyongze/go-api/models"
+	"github.com/astaxie/beego"
 )
 
 type LotsController struct {
@@ -10,7 +11,9 @@ type LotsController struct {
 }
 
 //测试接口
+//@router /todo
 func (self *LotsController) Todo()  {
+	//self.isPost()
 	data := map[string]int{"key1": 5, "key2": 4}
 
 	//delete(data ,"key1")
@@ -34,6 +37,7 @@ func (self *LotsController) Todo()  {
 }
 
 //获取拍品信息
+//@router /getlots
 func (self *LotsController) Getlots()  {
 	lot_id, _ := self.GetInt("lot_id", 0)
 	fmt.Println(lot_id)
@@ -72,8 +76,11 @@ func (self *LotsController) Getlots()  {
 }
 
 //http://sldc-go.io/lots/lotinfo?lot_id=1509
+// @Param	lot_id	lot_id	string	true	"Filter. e.g. col1:v1,col2:v2 ..."
+//@router /lotinfo [get]
 func (this *LotsController) LotInfo()  {
 	lot_id := this.GetString("lot_id")
+	beego.Info(lot_id)
 	redis :=createClient();
 	val, err := redis.HGetAll("personage_auction:hash:325:lotid:" + lot_id ).Result()
 	if err != nil {
