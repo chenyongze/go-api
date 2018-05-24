@@ -10,10 +10,10 @@ site.name = API管理平台
 # 数据库配置
 db.host = 127.0.0.1
 db.user = root
-db.password = "ba199035" 
+db.password =
 db.port = 3306
 db.name = ppgo_api_admin
-db.name_sl = tangka
+db.name_sl =
 db.prefix = pp_
 db.timezone = Asia/Shanghai
 
@@ -22,6 +22,14 @@ db.timezone = Asia/Shanghai
 db.sl.name = tangka
 db.sl.prefix = sl_
 
+# redis config
+redis.host =
+redis.port = 7379
+redis.db = 0
+redis.auth =
+
+redis.link = xxxxxx:7379
+
 #dingtalk
-ding.conf = https://oapi.dingtalk.com/robot/send?access_token=a82e8cfa3d59d0c71a3673474729028ae233b79aff4d67f8e2cc77abfcb59d26
+ding.conf = https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
 

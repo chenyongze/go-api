@@ -15,6 +15,7 @@ import (
 	"github.com/chenyongze/go-api/libs"
 	"github.com/chenyongze/go-api/models"
 	"fmt"
+	"github.com/go-redis/redis"
 )
 
 const (
@@ -61,6 +62,21 @@ func (self *BaseController) Prepare() {
 	self.Data["loginUserId"] = self.userId
 	self.Data["loginUserName"] = self.userName
 }
+
+// redis 链接
+func createClient() *redis.Client {
+	client := redis.NewClient(&redis.Options{
+		Addr:     beego.AppConfig.String("redis.link"),
+		Password: beego.AppConfig.String("redis.auth"),
+		DB:       0,
+	})
+	// 通过 cient.Ping() 来检查是否成功连接到了 redis 服务器
+	pong, err := client.Ping().Result()
+	//fmt.Println(pong, err)
+	beego.Debug(pong, err)
+	return client
+}
+
 
 //登录权限验证
 func (self *BaseController) auth() {

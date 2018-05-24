@@ -71,3 +71,28 @@ func (self *LotsController) Getlots()  {
 	self.ajaxReturn(msg,code,data)
 }
 
+//http://sldc-go.io/lots/lotinfo?lot_id=1509
+func (this *LotsController) LotInfo()  {
+	lot_id := this.GetString("lot_id")
+	redis :=createClient();
+	val, err := redis.HGetAll("personage_auction:hash:325:lotid:" + lot_id ).Result()
+	if err != nil {
+		//panic(err)
+		this.ajaxReturn("error",MSG_ERR,val)
+	}
+	fmt.Println("key", val)
+	this.ajaxReturn("success",MSG_OK,val)
+}
+
+
+func (this *LotsController) Th() {
+	redis :=createClient();
+	val, err := redis.Keys("auction:hash:*" ).Result()
+	if err != nil {
+		//panic(err)
+		this.ajaxReturn("error",MSG_ERR,val)
+	}
+	//fmt.Println("key", val)
+	this.ajaxReturn("success",MSG_OK,val)
+}
+
