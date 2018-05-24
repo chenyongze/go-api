@@ -27,6 +27,8 @@ func init() {
 	beego.AutoRouter(&controllers.LotsController{})
 	beego.AutoRouter(&controllers.DingController{})
 	beego.AutoRouter(&controllers.WeChatController{})
+	beego.AutoRouter(&controllers.AuctionController{})
+	beego.AutoRouter(&controllers.TestController{})
 
 	// beego.AutoRouter(&controllers.ApiMonitorController{})
 	beego.AutoRouter(&controllers.EnvController{})
