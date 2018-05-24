@@ -7,19 +7,19 @@
 
 case $1 in 
 	start)
-		nohup ./PPGo_ApiAdmin 2>&1 >> info.log 2>&1 /dev/null &
+		nohup ./go-api 2>&1 >> info.log 2>&1 /dev/null &
 		echo "服务已启动..."
 		sleep 1
 	;;
 	stop)
-		killall PPGo_ApiAdmin
+		killall go-api
 		echo "服务已停止..."
 		sleep 1
 	;;
 	restart)
-		killall PPGo_ApiAdmin
+		killall go-api
 		sleep 1
-		nohup ./PPGo_ApiAdmin 2>&1 >> info.log 2>&1 /dev/null &
+		nohup ./go-api 2>&1 >> info.log 2>&1 /dev/null &
 		echo "服务已重启..."
 		sleep 1
 	;;
