@@ -35,29 +35,23 @@ func init() {
 	beego.AutoRouter(&controllers.UserController{})
 
 	//sldc
-	//apins := beego.NewNamespace("/api",
-	//	beego.NSNamespace("/lots",
-	//		//beego.NSRouter("", &controllers.LotsController{}),
-	//	),
-	//)
-	//beego.AddNamespace(apins)
-
-	//beego.Router("/go/lots",&controllers.LotsController{})
-	//beego.AutoRouter(&controllers.LotsController{})
-	beego.Router("/v1/lots",&controllers.LotsController{})
+	beego.AutoRouter(&controllers.LotsController{})
 	beego.AutoRouter(&controllers.DingController{})
 	beego.AutoRouter(&controllers.WeChatController{})
 	beego.AutoRouter(&controllers.AuctionController{})
 	beego.AutoRouter(&controllers.TestController{})
 
-	//ns := beego.NewNamespace("/go",
-	//	beego.NSNamespace("/lots",
-	//		beego.NSInclude(
-	//			&controllers.LotsController{},
-	//		),
-	//	),
-	//)
-	//beego.AddNamespace(ns)
+
+	//注解路由
+	ns := beego.NewNamespace("/v-go",
+		beego.NSNamespace("/cms",
+			beego.NSInclude(
+				&controllers.CmsArticleController{},
+			),
+		),
+	)
+	beego.AddNamespace(ns)
+
 
 	beego.Informational("init routers end.")
 

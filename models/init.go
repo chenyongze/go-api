@@ -46,6 +46,7 @@ func Init() {
 		new(Lots),
 		new(ApiDetail), new(ApiPublic), new(Template))
 
+	//dev 环境 开启 orm sql
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true
 	}

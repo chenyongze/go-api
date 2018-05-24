@@ -38,4 +38,7 @@ API管理工具 golang开发，基于beego，页面基于layUi,目前版本1.0.0
 用户名：admin 密码：george518    
 
 
+##
+bee migrate -driver=mysql -conn="root:xxx@tcp(127.0.0.1:3306)/xx"
+
 

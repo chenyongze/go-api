@@ -56,7 +56,7 @@ func (self *BaseController) Prepare() {
 	fmt.Println(self.controllerName)
 	if ((strings.Compare(self.controllerName, "apidoc")) != 0) {
 		//校验权限
-		self.auth()
+		//self.auth()
 	}
 
 	self.Data["loginUserId"] = self.userId
